@@ -25,7 +25,7 @@ const MenuItem = ({ item }) => {
   return (
     <View style={styles.btn_item}>
       <View style={styles.btn_item}>
-        <FontAwesome5 name={item.icon} size={35} color={"green"} />
+        <FontAwesome5 name={item.icon} size={30} color={"green"} />
       </View>
       <Text styles={styles.btn_text}>{item.name}</Text>
     </View>
@@ -34,12 +34,14 @@ const MenuItem = ({ item }) => {
 
 const styles = StyleSheet.create({
   btn_item: {
-    width: 100,
+    width: 80,
     marginHorizontal: 5,
     marginVertical: 10,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 10
   },
   btn_icon: { marginBottom: 10 },
   btn_text: { color: "black", fontSize: 14 },
