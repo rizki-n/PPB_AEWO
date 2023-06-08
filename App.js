@@ -1,9 +1,10 @@
-
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './src/widgets/home';
-import CalendarFirstWeek from './src/widgets/calendar';
+import Calendar from './src/widgets/calendar';
+
+
 
 export default function App() {
 
@@ -11,8 +12,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home}/>
-        <Tab.Screen name="Calendar" component={CalendarFirstWeek}/>
+        <Tab.Screen name="Home" component={Home} options={{title:"",headerShown:false}}/>
+        <Tab.Screen name="Calendar" component={Calendar}/>
       </Tab.Navigator>
       </NavigationContainer>
   );
