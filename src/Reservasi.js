@@ -6,9 +6,9 @@ const Reservasi = () => {
     { id: '1', image: require('../assets/1.png'), description: 'Tracking Item 1' },
     { id: '2', image: require('../assets/2.png'), description: 'Tracking Item 2' },
     { id: '3', image: require('../assets/3.png'), description: 'Tracking Item 1' },
-    { id: '1', image: require('../assets/1.png'), description: 'Edukasi Item 1' },
-    { id: '2', image: require('../assets/2.png'), description: 'Edukasi Item 2' },
-    { id: '3', image: require('../assets/3.png'), description: 'Edukasi Item 3' },
+    { id: '4', image: require('../assets/11.png'), description: 'Edukasi Item 1' },
+    { id: '5', image: require('../assets/22.png'), description: 'Edukasi Item 2' },
+    { id: '6', image: require('../assets/33.png'), description: 'Edukasi Item 3' },
   ];
 
   const renderImageItem = ({ item, index }) => {
@@ -19,11 +19,22 @@ const Reservasi = () => {
       imageWidth = 300;
       imageHeight = 200;
     } else if (item.id === '2') {
-      imageWidth = 250;
-      imageHeight = 220;
+      imageWidth = 300;
+      imageHeight = 200;
     } else if (item.id === '3') {
-      imageWidth = 350;
-      imageHeight = 150;
+      imageWidth = 300;
+      imageHeight = 200;
+    }
+    else if (item.id === '11') {
+      imageWidth = 500;
+      imageHeight = 100;
+    } else if (item.id === '22') {
+      imageWidth = 500;
+      imageHeight = 100;
+    }
+    else if (item.id === '33') {
+      imageWidth = 500;
+      imageHeight = 100;
     }
 
     return (
