@@ -3,15 +3,32 @@ import { View, StyleSheet, Text, Image, ScrollView, FlatList } from 'react-nativ
 
 const Reservasi = () => {
   const data = [
-    { id: '1', image: require('../assets/1.png') },
-    { id: '2', image: require('../assets/2.png') },
-    { id: '3', image: require('../assets/3.png') },
+    { id: '1', image: require('../assets/1.png'), description: 'Tracking Item 1' },
+    { id: '2', image: require('../assets/2.png'), description: 'Tracking Item 2' },
+    { id: '3', image: require('../assets/3.png'), description: 'Tracking Item 1' },
+    { id: '1', image: require('../assets/1.png'), description: 'Edukasi Item 1' },
+    { id: '2', image: require('../assets/2.png'), description: 'Edukasi Item 2' },
+    { id: '3', image: require('../assets/3.png'), description: 'Edukasi Item 3' },
   ];
 
   const renderImageItem = ({ item, index }) => {
+    let imageWidth = 350;
+    let imageHeight = 180;
+
+    if (item.id === '1') {
+      imageWidth = 300;
+      imageHeight = 200;
+    } else if (item.id === '2') {
+      imageWidth = 250;
+      imageHeight = 220;
+    } else if (item.id === '3') {
+      imageWidth = 350;
+      imageHeight = 150;
+    }
+
     return (
       <View style={[styles.imageContainer, { marginLeft: index === 0 ? 0 : 20 }]}>
-        <Image source={item.image} style={styles.image} />
+        <Image source={item.image} style={[styles.image, { width: imageWidth, height: imageHeight }]} />
         <Text style={styles.imageDescription}>{item.description}</Text>
       </View>
     );
@@ -28,7 +45,7 @@ const Reservasi = () => {
         <View style={styles.layer}>
           <FlatList
             horizontal
-            data={data}
+            data={data.filter((item) => item.description.includes('Tracking'))}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             renderItem={renderImageItem}
@@ -40,7 +57,7 @@ const Reservasi = () => {
         <View style={styles.layer}>
           <FlatList
             horizontal
-            data={data}
+            data={data.filter((item) => item.description.includes('Edukasi'))}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             renderItem={renderImageItem}
@@ -69,8 +86,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   image: {
-    width: 350,
-    height: 180,
     borderRadius: 20,
   },
   imageDescription: {
