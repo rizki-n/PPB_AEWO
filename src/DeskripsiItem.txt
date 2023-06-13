@@ -1,0 +1,34 @@
+// DeskripsiItem.js
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const DeskripsiItem = ({ index }) => {
+  const deskripsiArray = [
+    'Deskripsi 1',
+    'Deskripsi 2',
+    'Deskripsi 3',
+    'Deskripsi 4',
+    'Deskripsi 5',
+    'Deskripsi 6',
+  ];
+
+  const description = deskripsiArray[index % deskripsiArray.length];
+  const randomSuffix = Math.floor(Math.random() * 1000); // Nilai acak antara 0 hingga 999
+
+  return (
+    <View>
+      <Text style={styles.itemDescription}>{description + randomSuffix}</Text>
+  
+    </View>
+  );
+};
+
+const styles = {
+  itemDescription: {
+    marginTop: 5,
+    fontStyle: 'italic',
+    textAlign: 'center',
+  },
+};
+
+export default DeskripsiItem;
