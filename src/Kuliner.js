@@ -1,18 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image, FlatList, SafeAreaView } from 'react-native';
+import { View, StyleSheet, Text, Image, FlatList } from 'react-native';
 
-const Reservasi = () => {
+const Kuliner = () => {
   const data = [
-    { id: '1', image: require('../assets/1.png'), description: 'Tracking Item 1' },
-    { id: '2', image: require('../assets/2.png'), description: 'Tracking Item 2' },
-    { id: '3', image: require('../assets/3.png'), description: 'Tracking Item 3' },
-    { id: '4', image: require('../assets/edu11.png'), description: 'Edukasi Item 1' },
-    { id: '5', image: require('../assets/edu22.png'), description: 'Edukasi Item 2' },
-    { id: '6', image: require('../assets/edu33.png'), description: 'Edukasi Item 3' },
+    { id: '1', image: require('../assets/mkn1.png'), description: 'Makanan Item 1' },
+    { id: '2', image: require('../assets/mkn2.png'), description: 'Makanan Item 2' },
+    { id: '3', image: require('../assets/mkn3.png'), description: 'Makanan Item 3' },
+    { id: '4', image: require('../assets/mnm1.png'), description: 'Minuman Item 1' },
+    { id: '5', image: require('../assets/mnm2.png'), description: 'Minuman Item 2' },
+    { id: '6', image: require('../assets/mnm3.png'), description: 'Minuman Item 3' },
   ];
 
   const renderImageItem = ({ item }) => {
-    const imageStyles = item.description.includes('Tracking') ? styles.TrackingImage : styles.EdukasiImage;
+    const imageStyles = item.description.includes('Makanan') ? styles.MakananImage : styles.MinumanImage;
 
     return (
       <View style={styles.imageContainer}>
@@ -23,9 +23,10 @@ const Reservasi = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View><Text style={styles.heading}>Reservasi Argowita</Text></View>
-      {['Tracking', 'Edukasi'].map((category) => (
+    <View>
+      <Text style={styles.heading}>Kuliner Argowita</Text>
+      
+      {['Makanan', 'Minuman'].map((category) => (
         <View key={category}>
           <Text style={styles.categoryTitle}>{category}</Text>
           <FlatList
@@ -38,13 +39,14 @@ const Reservasi = () => {
           />
         </View>
       ))}
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 30,
     backgroundColor: '#fff',
     paddingHorizontal: 16,
     marginTop: 20,
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     color: 'green',
     fontWeight: 'bold',
     marginBottom: 20,
-    marginTop: 10,
+    marginTop: 50,
   },
   categoryTitle: {
     fontSize: 12,
@@ -72,19 +74,25 @@ const styles = StyleSheet.create({
   image: {
     borderRadius: 20,
   },
-  TrackingImage: {
-    width: 280,
-    height: 195,
+  MakananImage: {
+    width: 300,
+    height: 200,
   },
-  EdukasiImage: {
-    width: 198,
-    height: 250,
+  MinumanImage: {
+    width: 300,
+    height: 200,
   },
   imageDescription: {
     marginTop: 10,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  bottomText: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
 });
 
-export default Reservasi;
+export default Kuliner;
